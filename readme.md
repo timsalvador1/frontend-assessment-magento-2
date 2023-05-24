@@ -10,7 +10,7 @@
 - Use the command 'grunt watch' or 'grunt' to run the compiler
 - Employed jQuery on the JavaScript side
 
-# Followed These Coding Practices
+# Followed these coding practices:
 - Casing: kebab-case
 - Use BEM syntax for custom CSS classes.
 - Use Bootstrap utility classes mainly for layout and spacing, (see the Layout and Utilities sections of the documentation).
