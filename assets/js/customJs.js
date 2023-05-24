@@ -123,9 +123,11 @@ $(function() {
             if(tabsTarget.find(".tabs__content." + target).hasClass("active")){
                 $(options.tabsContent).removeClass("active");
                 $(tabsTarget.find(".tabs__content." + target)).slideToggle();
+                $(tabsTarget.find(".tabs__content")).not('.'+target).slideUp();
             } else {
                 $(options.tabsContent).removeClass("active");
                 $(tabsTarget.find(".tabs__content." + target)).slideToggle();
+                $(tabsTarget.find(".tabs__content")).not('.'+target).slideUp();
             }
         });
     }
