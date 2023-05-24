@@ -19,8 +19,11 @@
 
 # Note:
 
-Kindly note that, I have directly used your json data onject in the JS File. The Reason is, If you are gonna review this locally (Without a Local Server i.e http://localhost/) it will throgh a CORS Origin Error. Because these Files Server Were Not Served Over an HTTP Request. So in that case, you can Directly Open Index.html in Your Browser and Preview.
-If You Really Wish to this Using data.json file, Here is the Approach that Would be Used,
+I would like to bring your attention to the utilization of your JSON data object directly in the JavaScript file. This decision was based on a consideration for local reviews. If you wish to review the code in a local environment without a local server (i.e., http://localhost/), a Cross-Origin Resource Sharing (CORS) error might be encountered. This issue arises due to the lack of serving files over an HTTP request.
+
+Therefore, as a workaround, you can directly open the Index.html file in your browser to preview it.
+
+However, if your preference lies in employing the 'data.json' file, I present below the approach that can be adopted:
 
 <script>
 	$(document).ready(function() {
