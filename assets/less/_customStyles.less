@@ -1,0 +1,200 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+/* Import Reset CSS */
+@import "_resetCss.less";
+
+/* Import Custom Variables */
+@import "_variables.less";
+
+/* Root CSS Styles */
+:root {
+  --primary-color: @primary-color;
+  --secondary-color: @secondary-color;
+}
+
+/* Body Styles */
+body {
+  background-color: rgba(230, 238, 249, 0.5);
+}
+
+/* Page Container */
+.container {
+    max-width: @container-max-width;
+    margin-left: @container-margin;
+    margin-right: @container-margin;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    flex-direction: column;
+    /* Tabs Items */
+    .tabs_items {
+        display: flex;
+        position: relative;
+        justify-content: flex-start;
+        background-color: #fff;
+        box-shadow: 0 0 1px 0 @box-shadow-color, 
+                    0 6px 12px 0 @box-shadow-color;
+        padding: @tab-padding;
+        border-radius: @tab-border-radius;
+        margin-top: @tab-margin-top;
+        max-width: 100%;
+    }
+    * {
+        z-index: 2;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: @tab-height;
+        width: @tab-width;
+        font-size: @tab-font-size;
+        font-weight: @tab-font-weight;
+        text-transform: uppercase;
+        border-radius: @tab-border-radius;
+        cursor: pointer;
+        transition: color 0.15s ease-in;
+    }
+    /* Tabs Content Area */
+    .tab__content-area {
+        display: inline-block;
+        width: 100%;
+        background-color: #ffffff;
+        padding: @tab-content-padding;
+        margin-top: @tab-content-margin-top;
+        border-radius: @tab-content-border-radius;
+        min-height: @tab-content-min-height;
+    }
+    /* Tabs Content */
+    .tabs__content {
+        font-size: @tabs-content-font-size;
+        line-height: 1.5;
+        &:not(.active) {
+            display: none;
+        }
+        .tabs__content-title {
+            font-size: 1.55rem;
+            text-transform: uppercase;
+            text-decoration: underline;
+            margin-bottom: 15px;
+        }
+        ul {
+            padding: 15px 0 0 35px;
+            li {
+                list-style: disc;
+            }
+        }
+    }
+
+    /* Tabs Content Glider */
+    .glider {
+        position: absolute;
+        display: flex;
+        height: @tab-height;
+        width: @tab-width;
+        background-color: var(--secondary-color);
+        z-index: 1;
+        border-radius: @tab-border-radius;
+        transition: 0.25s ease-out;
+    }
+}
+  
+/* Responsiveness */
+@media (max-width: 1399px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 991px) {
+    .container {
+        max-width: 920px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+    .tabs {
+        .tab {
+            position: relative;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 0 1px 0 @box-shadow-color, 
+                0 6px 12px 0 @box-shadow-color;
+            justify-content: flex-start;
+            padding: 0 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            &::before {
+                content: '';
+                background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>');
+                background-repeat: no-repeat;
+                background-size: 15px;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 19px;
+                right: 12px;
+            }
+        }
+        .tabs_items {
+            flex-wrap: wrap;
+            background-color: inherit;
+            box-shadow: inherit;
+            .tab__item {
+                width: 100%;
+            }
+            .tab__item {
+                order: 3;
+                &:not(:last-child){
+                    margin-bottom: 15px;
+                }
+                &.active {
+                    order: 1;
+                    label {
+                        color: #000000 !important;
+                    }
+                    .tab::before {
+                        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>');
+                    }
+                }
+            }
+            .tabs__content {
+                width: 100%;
+                background-color: #ffffff;
+                box-shadow: 0 0 1px 0 @box-shadow-color, 
+                0 6px 12px 0 @box-shadow-color;
+                padding: 25px;
+                border-radius: 15px;
+                margin-bottom: 18px;
+                &.active {
+                    display: inline-block;
+                    order: 2;
+                }
+            }
+        }
+        .tab__content-area {
+            display: none;
+        }
+        .tabs__content {
+            .tabs__content-title {
+                font-size: 1.25rem;
+            }
+            p {
+                font-size: 0.925rem;
+            }
+        }
+        .glider {
+            display: none;
+        }
+    }
+}
+
