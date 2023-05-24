@@ -104,6 +104,34 @@ body {
         transition: 0.25s ease-out;
     }
 }
+
+	/* Tabs Order For Accordians */
+	.tab__item[data-tab-index='tab-1'] {
+		order: 1;
+	}
+	.tab__item[data-tab-index='tab-2'] {
+		order: 3;
+	}
+	.tab__item[data-tab-index='tab-3'] {
+		order: 5;
+	}
+	.tab__item[data-tab-index='tab-4'] {
+		order: 7;
+	}
+	.tabs__content {
+		&.tab-1 {
+			order: 2;
+		}
+		&.tab-2 {
+			order: 4;
+		}
+		&.tab-3 {
+			order: 6;
+		 }
+		&.tab-4 {
+			order: 8;
+		}
+	}
   
 /* Responsiveness */
 @media (max-width: 1399px) {
@@ -153,12 +181,12 @@ body {
                 width: 100%;
             }
             .tab__item {
-                order: 3;
+                //order: 3;
                 &:not(:last-child){
                     margin-bottom: 15px;
                 }
                 &.active {
-                    order: 1;
+                    //order: 1;
                     label {
                         color: #000000 !important;
                     }
@@ -175,9 +203,10 @@ body {
                 padding: 25px;
                 border-radius: 15px;
                 margin-bottom: 18px;
+				display: none;
+				overflow: hidden;
                 &.active {
                     display: inline-block;
-                    order: 2;
                 }
             }
         }
