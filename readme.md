@@ -1,3 +1,6 @@
+# Note: Install Node Modules By Running
+- npm install
+
 # Design
 1- Implemented Pixel Perfect Design For Desktop & Mobile Using Your Provided Assets.
 2- Used Less For CSS (As Magento 2 Use LESS for CSS)
