@@ -41,18 +41,19 @@ $(function() {
         jsonData.forEach(function(item, index) {
             let title = item.title,
                 content = item.content,
-                activeClass = (index === 0) ? ' active' : '',
+                activeClass = (index === 0 && $(window).width() > 768) ? ' active' : '',
                 isTabItemActive = (index === 0) ? ' active' : '',
+                isVisible = (index === 0 && $(window).width() <= 768) ? 'block' : '',
                 tabClass = "tab-" + (index + 1),
                 tabContentClass = "tab-" + (index + 1) + activeClass,
                 inputId = "tab-" + (index + 1);
 
-                tabTitles += `<div class="tab__item ${isTabItemActive}">
+                tabTitles += `<div class="tab__item ${isTabItemActive}" data-tab-index="${tabClass}">
                                 <input type="radio" id="${inputId}" name="tab-group" data-tab="${tabClass}">
                                 <label class="tab" for="${inputId}"> ${title}</label>
                             </div>`;
 
-                tabContents += `<div class="tabs__content ${tabContentClass}">
+                tabContents += `<div class="tabs__content ${tabContentClass}" data-content-index="${tabClass}" style="display: ${isVisible}">
                                     <h2 class="tabs__content-title"> ${title}</h2>
                                     <p>${content}</p>
                                 </div>`;
@@ -77,6 +78,11 @@ $(function() {
     if ($(window).width() <= 768){
         _handleMobAccordians();
     }
+
+    // Re-render The Content After Browser Resizing
+    $(window).on('resize', function(){
+        location.reload();
+    });
 
     // Handle Desktop Tabs
     function _handleDesktopTabs(){
@@ -116,10 +122,10 @@ $(function() {
 
             if(tabsTarget.find(".tabs__content." + target).hasClass("active")){
                 $(options.tabsContent).removeClass("active");
-                $(tabsTarget.find(".tabs__content." + target)).removeClass("active");
+                $(tabsTarget.find(".tabs__content." + target)).slideToggle();
             } else {
                 $(options.tabsContent).removeClass("active");
-                $(tabsTarget.find(".tabs__content." + target)).addClass("active");
+                $(tabsTarget.find(".tabs__content." + target)).slideToggle();
             }
         });
     }
